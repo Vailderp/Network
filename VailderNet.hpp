@@ -26,7 +26,7 @@ namespace vn
 			if (socket_.connect(ip_address, port) == sf::Socket::Done)
 			{
 				std::cout
-					<< "> READY > TCP SOCKET > CONNECT." << std::endl
+					<< "> DONE > TCP SOCKET > CONNECT." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
@@ -50,7 +50,7 @@ namespace vn
 			if (socket_.send(packet) == sf::Socket::Done)
 			{
 				std::cout
-					<< "> READY > TCP SOCKET > SEND." << std::endl
+					<< "> DONE > TCP SOCKET > SEND." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
@@ -74,7 +74,7 @@ namespace vn
 			if (socket_.receive(packet) == sf::Socket::Done)
 			{
 				std::cout
-					<< "> READY > TCP SOCKET > RECEIVE." << std::endl
+					<< "> DONE > TCP SOCKET > RECEIVE." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
@@ -85,7 +85,7 @@ namespace vn
 			else
 			{
 				std::cout
-					<< "> ERROR > TCP SOCKET > RECEIVE." << std::endl
+					<< "> DONE > TCP SOCKET > RECEIVE." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
@@ -125,7 +125,7 @@ namespace vn
 			if (listener_.listen(port) == sf::Socket::Done)
 			{
 				std::cout
-					<< "> READY > TCP LISTENER > LISTEN." << std::endl
+					<< "> DONE > TCP LISTENER > LISTEN." << std::endl
 					<< "-> LOCAL PORT: " << listener_.getLocalPort() << std::endl
 					<< ">" << std::endl;
 			}
@@ -151,7 +151,7 @@ namespace vn
 			if (socket_.receive(packet) == sf::Socket::Done)
 			{
 				std::cout
-					<< "> READY > TCP LISTENER > ACCEPT." << std::endl
+					<< "> DONE > TCP LISTENER > ACCEPT." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
