@@ -2,14 +2,10 @@
 #include "iostream"
 #include "SFML/Network.hpp"
 
-// \brief Vailder's Network
+//Vailder's Network
 namespace vn
 {
-	enum enums
-	{
-
-	};
-
+	//TCP SOCKET
 	class SOCKET
 	{
 	private:
@@ -21,6 +17,7 @@ namespace vn
 
 		}
 
+		//Connect to server
 		void connect(const std::string& ip_address, const unsigned __int16 port)
 		{
 			if (socket_.connect(ip_address, port) == sf::Socket::Done)
@@ -43,6 +40,7 @@ namespace vn
 			}
 		}
 
+		//send string message to server
 		void send(const std::string& data_string)
 		{
 			sf::Packet packet;
@@ -67,6 +65,7 @@ namespace vn
 			}
 		}
 
+		//receive
 		std::string receive()
 		{
 			sf::Packet packet;
@@ -85,7 +84,7 @@ namespace vn
 			else
 			{
 				std::cout
-					<< "> DONE > TCP SOCKET > RECEIVE." << std::endl
+					<< "> ERROR > TCP SOCKET > RECEIVE." << std::endl
 					<< "-> REMOTE ADDRESS: " << socket_.getRemoteAddress() << std::endl
 					<< "-> REMOTE PORT: " << socket_.getRemotePort() << std::endl
 					<< "-> LOCAL PORT: " << socket_.getLocalPort() << std::endl
@@ -95,11 +94,13 @@ namespace vn
 			return NULL;
 		}
 
+		//send
 		void operator << (const std::string& data_string)
 		{
 			send(data_string);
 		}
 
+		//receive
 		std::string operator >> (const std::string&)
 		{
 			return receive();
@@ -120,6 +121,7 @@ namespace vn
 
 		}
 
+		//listen this port
 		void listen(const unsigned __int16 port)
 		{
 			if (listener_.listen(port) == sf::Socket::Done)
@@ -138,11 +140,13 @@ namespace vn
 			}
 		}
 
+		//listen this port
 		void operator << (const unsigned __int16 port)
 		{
 			listen(port);
 		}
 
+		//accept string message
 		std::string accept()
 		{
 			sf::Packet packet;
@@ -172,6 +176,7 @@ namespace vn
 			return "null";
 		}
 
+		//accept string message
 		std::string operator >> (const std::string&)
 		{
 			return accept();
